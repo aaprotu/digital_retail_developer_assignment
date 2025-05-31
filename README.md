@@ -70,6 +70,8 @@ CL_AUTH_URL=https://auth.commercelayer.io/oauth/token
 ADYEN_TERMINAL_URL=http://adyen:3000/sync
 ```
 
+The **.env** file **should be placed in the root of the project directory**
+
 ---
 
 ## Running the application
@@ -120,8 +122,12 @@ This project follows an event-driven microservices architecture:
 
 ### Testing
 
-To run the unit tests, make sure you have pytest and pytest-httpx installed and you're in the project root. Then execute:
-```set PYTHONPATH=.```
+To run the unit tests, make sure you have `pytest` and `pytest-httpx` installed and you're in the project root. Then execute:
+```
+set PYTHONPATH=.
+```
 
 and run the tests with
-```pytest```
+```
+pytest
+```
