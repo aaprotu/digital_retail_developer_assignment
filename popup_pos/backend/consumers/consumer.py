@@ -39,17 +39,14 @@ def start_consumer(max_retries=10, delay=5):
     for attempt in range(max_retries):
         try:
             connection = pika.BlockingConnection(pika.ConnectionParameters("rabbitmq"))
-            print("✅ Connected to RabbitMQ")
             break
         except pika.exceptions.AMQPConnectionError:
-            print(f"RabbitMQ not ready (attempt {attempt + 1}/{max_retries})... retrying in {delay}s")
             time.sleep(delay)
     else:
         raise Exception("Failed to connect to RabbitMQ after several retries")
     
     channel = connection.channel()
 
-    # Declare a durable queue (in case the broker restarts)
     channel.queue_declare(queue="payment", durable=True)
     
     # Start consuming messages with the callback function
