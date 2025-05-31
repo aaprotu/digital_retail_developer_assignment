@@ -120,7 +120,7 @@ This project follows an event-driven microservices architecture:
 
 ### Testing
 
-To run the unit tests, make sure you have pytest and pytest-httpx installed and you're in the project root. Then execute:
+To run the unit tests, make sure you have `pytest` and `pytest-httpx` installed and you're in the project root. Then execute:
 ```set PYTHONPATH=.```
 
 and run the tests with
