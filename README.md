@@ -70,7 +70,7 @@ CL_AUTH_URL=https://auth.commercelayer.io/oauth/token
 ADYEN_TERMINAL_URL=http://adyen:3000/sync
 ```
 
-The **.env** file should be located in this **project root**
+The **.env** file **hould be placed in the root of the project directory**
 
 ---
 
