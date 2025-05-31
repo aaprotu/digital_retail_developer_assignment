@@ -63,8 +63,12 @@ function App() {
         </form>
 
         {response && (
-          <div className="response">
-            <pre>{JSON.stringify(response, null, 2)}</pre>
+          <div className={`response-box ${response.status === 'success' ? 'success' : 'error'}`}>
+            {response.status === 'success' ? (
+              <p>Payment confirmed! You earned {response.earned_unikko_points} Unikko points.</p>
+            ) : (
+              <p>{response.error || 'Payment failed.'}</p>
+            )}
           </div>
         )}
       </div>
