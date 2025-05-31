@@ -65,7 +65,6 @@ async def process_payment(request: PaymentRequest):
         return {
             "status": "success",
             "earned_unikko_points": unikko_points,
-            "message": "Payment processed. Loyalty sync will follow shortly."
         }
 
     except Exception as e:
