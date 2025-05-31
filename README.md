@@ -76,7 +76,7 @@ The **.env** file **should be placed in the root of the project directory**
 
 ## Running the application
 
-Navigate to the project root and make sure Docker is running:
+Navigate to the project root and make sure Docker is running. Then execute:
 
 ```
 docker-compose up --build
