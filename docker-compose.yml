@@ -1,0 +1,40 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  adyen:
+    build:
+      context: ../adyen-mock-terminal-api-custom
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+
+  backend:
+    build: .
+    depends_on:
+      - rabbitmq
+      - adyen
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./popup_pos/frontend
+    ports:
+      - "4173:4173"
+    depends_on:
+      - backend
+
+  consumer:
+    build: .
+    depends_on:
+      - rabbitmq
+      - adyen
+    command: ["python", "-m", "popup_pos.backend.consumers.consumer"]
