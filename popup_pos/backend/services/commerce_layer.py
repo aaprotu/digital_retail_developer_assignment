@@ -96,8 +96,6 @@ class CommerceLayerClient:
             }
         }
         response = requests.post(f"{API_URL}/api/customers", headers=self.headers, json=payload)
-        print("Status code:", response.status_code)
-        print("Response body:", response.text)
         response.raise_for_status()
         return response.json()["data"]
     
